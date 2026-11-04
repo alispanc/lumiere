@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumière</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jomolhari&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="page-home">
+<header class="site-header">
+    <div class="header-top">
+        <a href="index.html" class="logo serif">Lumière</a>
+        <div class="search-box">
+            <input type="text" placeholder="Поиск">
+            <img src="img/search1.png" alt="" class="search-icon">
+        </div>
+        <div class="header-icons">
+            <button type="button" class="icon-btn" id="profile-btn" aria-label="Профиль">
+                <img src="img/avatar.png" alt="">
+            </button>
+            <a href="cart.html" class="icon-btn">
+                <img src="img/basket.png" alt="">
+            </a>
+        </div>
+    </div>
+    <nav class="header-nav">
+        <a href="category.html?cat=popular"   data-cat="popular">Новинки и популярные изделия</a>
+        <a href="category.html?cat=charms"    data-cat="charms">Шармы</a>
+        <a href="category.html?cat=bracelets" data-cat="bracelets">Браслеты</a>
+        <a href="category.html?cat=necklaces" data-cat="necklaces">Ожерелья</a>
+        <a href="category.html?cat=rings"     data-cat="rings">Кольца</a>
+        <a href="category.html?cat=earrings"  data-cat="earrings">Серьги</a>
+    </nav>
+</header>
+
+<section class="hero-parallax">
+    <div class="hero-parallax-inner">
+        <img src="img/hero.jpg" alt="" fetchpriority="high">
+    </div>
+</section>
+
+<section class="about-section">
+    <h2 class="about-title serif reveal-on-scroll reveal-strong">О бренде</h2>
+    <div class="about-row">
+        <div class="about-intro reveal-on-scroll">
+            <p class="about-text">Представьте украшение, которое хочется носить, не снимая. Именно такими мы создаём Lumière – аксессуары, которые не просто дополняют образ, но и становятся его неотъемлемой частью.</p>
+            <p class="about-text">Наша коллекция объединяет классическую эстетику и современный дизайн, вдохновлённый природой и женственностью. Мы верим, что истинная роскошь – в тактильной нежности и визуальной тишине.</p>
+            <p class="about-tagline serif">Это свет, который вы носите с собой!</p>
+        </div>
+        <div class="about-categories">
+            <div>
+                <a href="category.html?cat=earrings" class="category-card tall">
+                    <span class="overlay-title serif">Серьги</span>
+                    <img data-src="img/earrings.jpg" alt="" class="lazy-img" loading="lazy" decoding="async">
+                </a>
+                <p class="category-caption">Акцент на ваше сияние</p>
+            </div>
+            <div>
+                <a href="category.html?cat=necklaces" class="category-card tall">
+                    <span class="overlay-title serif">Ожерелья</span>
+                    <img data-src="img/Necklaces.jpg" alt="" class="lazy-img" loading="lazy" decoding="async">
+                </a>
+                <p class="category-caption">Изящество в каждой линии</p>
+            </div>
+        </div>
+    </div>
+    <div class="category-grid-bottom">
+        <a href="category.html?cat=popular" class="category-card wide">
+            <span class="overlay-title serif">Новинки</span>
+            <img data-src="img/popular.jpg" alt="" class="lazy-img" loading="lazy" decoding="async">
+        </a>
+        <a href="category.html?cat=bracelets" class="category-card wide">
+            <span class="overlay-title serif">Браслеты</span>
+            <img data-src="img/bracelets.jpg" alt="" class="lazy-img" loading="lazy" decoding="async">
+        </a>
+    </div>
+</section>
+
+<section class="hits-section">
+    <div class="hits-grid" id="hits-grid"></div>
+    <h2 class="section-title-center serif reveal-on-scroll reveal-strong hits-title-reveal">Хиты продаж</h2>
+</section>
+
+<section class="clients-section">
+    <div class="clients-content">
+        <h2 class="clients-title serif reveal-on-scroll reveal-strong">Наши довольные клиенты</h2>
+        <div class="clients-grid">
+            <div class="client-parallax-card">
+                <div class="client-parallax-inner">
+                    <img data-src="img/clients1.jpg" alt="" class="lazy-img" loading="lazy" decoding="async">
+                </div>
+            </div>
+            <div class="client-parallax-card">
+                <div class="client-parallax-inner">
+                    <img data-src="img/clients2.jpg" alt="" class="lazy-img" loading="lazy" decoding="async">
+                </div>
+            </div>
+            <div class="client-parallax-card">
+                <div class="client-parallax-inner">
+                    <img data-src="img/clients3.jpg" alt="" class="lazy-img" loading="lazy" decoding="async">
+                </div>
+            </div>
+            <div class="client-parallax-card">
+                <div class="client-parallax-inner">
+                    <img data-src="img/clients4.jpg" alt="" class="lazy-img" loading="lazy" decoding="async">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="site-footer">
+    <div class="footer-line"></div>
+    <p class="serif">ALL RIGHTS RESERVED. 2026 Lumière</p>
+</footer>
+
+<div class="modal-overlay" id="auth-modal">
+    <div class="modal-card">
+        <button type="button" class="modal-close" id="modal-close">&times;</button>
+        <div class="modal-tabs">
+            <button type="button" class="modal-tab active" data-tab="login">Войти</button>
+            <button type="button" class="modal-tab" data-tab="register">Регистрация</button>
+        </div>
+        <div class="modal-panel active" id="login-panel">
+            <h2 class="modal-title">Вход в Lumière</h2>
+            <form id="login-form" class="auth-form" novalidate>
+                <input type="email"    name="email"    placeholder="Email:">
+                <input type="password" name="password" placeholder="Пароль:">
+                <button type="submit" class="btn-dark">Войти</button>
+                <p class="form-error" id="login-error"></p>
+            </form>
+        </div>
+        <div class="modal-panel" id="register-panel">
+            <h2 class="modal-title">Регистрация в Lumière</h2>
+            <form id="register-form" class="auth-form" novalidate>
+                <input type="text"     name="name"             placeholder="Имя:">
+                <input type="email"    name="email"            placeholder="Email:">
+                <input type="password" name="password"         placeholder="Пароль:">
+                <input type="password" name="password_confirm" placeholder="Повторите пароль:">
+                <button type="submit" class="btn-dark">Зарегистрироваться</button>
+                <p class="form-error" id="register-error"></p>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/products.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

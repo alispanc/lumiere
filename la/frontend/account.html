@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumière – Личный кабинет</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jomolhari&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="page-account">
+<header class="site-header">
+    <div class="header-top">
+        <a href="index.html" class="logo serif">Lumière</a>
+        <div class="search-box">
+            <input type="text" placeholder="Поиск">
+            <img src="img/search1.png" alt="" class="search-icon" loading="lazy">
+        </div>
+        <div class="header-icons">
+            <button type="button" class="icon-btn" id="profile-btn" aria-label="Профиль">
+                <img src="img/avatar.png" alt="" loading="lazy">
+            </button>
+            <a href="cart.html" class="icon-btn">
+                <img src="img/basket.png" alt="" loading="lazy">
+            </a>
+        </div>
+    </div>
+    <nav class="header-nav">
+        <a href="category.html?cat=popular"   data-cat="popular">Новинки и популярные изделия</a>
+        <a href="category.html?cat=charms"    data-cat="charms">Шармы</a>
+        <a href="category.html?cat=bracelets" data-cat="bracelets">Браслеты</a>
+        <a href="category.html?cat=necklaces" data-cat="necklaces">Ожерелья</a>
+        <a href="category.html?cat=rings"     data-cat="rings">Кольца</a>
+        <a href="category.html?cat=earrings"  data-cat="earrings">Серьги</a>
+    </nav>
+</header>
+
+<section class="account-page" id="account-content"></section>
+
+<footer class="site-footer">
+    <div class="footer-line"></div>
+    <p class="serif">ALL RIGHTS RESERVED. 2026 Lumière</p>
+</footer>
+
+<div class="modal-overlay" id="auth-modal">
+    <div class="modal-card">
+        <button type="button" class="modal-close" id="modal-close">&times;</button>
+        <div class="modal-tabs">
+            <button type="button" class="modal-tab active" data-tab="login">Войти</button>
+            <button type="button" class="modal-tab" data-tab="register">Регистрация</button>
+        </div>
+        <div class="modal-panel active" id="login-panel">
+            <h2 class="modal-title">Вход в Lumière</h2>
+            <form id="login-form" class="auth-form" novalidate>
+                <input type="email"    name="email"    placeholder="Email:">
+                <input type="password" name="password" placeholder="Пароль:">
+                <button type="submit" class="btn-dark">Войти</button>
+                <p class="form-error" id="login-error"></p>
+            </form>
+        </div>
+        <div class="modal-panel" id="register-panel">
+            <h2 class="modal-title">Регистрация в Lumière</h2>
+            <form id="register-form" class="auth-form" novalidate>
+                <input type="text"     name="name"             placeholder="Имя:">
+                <input type="email"    name="email"            placeholder="Email:">
+                <input type="password" name="password"         placeholder="Пароль:">
+                <input type="password" name="password_confirm" placeholder="Повторите пароль:">
+                <button type="submit" class="btn-dark">Зарегистрироваться</button>
+                <p class="form-error" id="register-error"></p>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/products.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -43,6 +43,30 @@
 
 <div class="order-toast" id="order-toast">Заказ оформлен</div>
 
+<div class="modal-overlay" id="checkout-modal">
+    <div class="modal-card">
+        <button type="button" class="modal-close" data-close>&times;</button>
+        <h2 class="modal-title">Оформление заказа</h2>
+        <p class="checkout-summary" id="checkout-summary"></p>
+        <form id="checkout-form" class="auth-form checkout-form" novalidate>
+            <label>Имя
+                <input type="text" name="name" maxlength="100" autocomplete="name">
+            </label>
+            <label>Email
+                <input type="email" name="email" maxlength="255" autocomplete="email">
+            </label>
+            <label>Адрес доставки
+                <input type="text" name="address" maxlength="300" placeholder="Город, улица, дом, квартира" autocomplete="street-address">
+            </label>
+            <label>Номер телефона
+                <input type="tel" name="phone" maxlength="20" placeholder="+7 900 000-00-00" autocomplete="tel">
+            </label>
+            <button type="submit" class="btn-dark">Подтвердить заказ</button>
+            <p class="form-error" id="checkout-error"></p>
+        </form>
+    </div>
+</div>
+
 <footer class="site-footer">
     <div class="footer-line"></div>
     <p class="serif">ALL RIGHTS RESERVED. 2026 Lumière</p>
@@ -79,7 +103,9 @@
 </div>
 
 <script src="js/api.js"></script>
-<script src="js/products.js"></script>
-<script src="js/main.js"></script>
+<script src="js/common.js"></script>
+<script src="js/effects.js"></script>
+<script src="js/header.js"></script>
+<script src="js/cart.js"></script>
 </body>
 </html>

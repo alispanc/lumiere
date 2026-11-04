@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumière – Админ-панель</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jomolhari&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header admin-header">
+    <div class="header-top">
+        <a href="index.html" class="logo serif">Lumière</a>
+        <a href="index.html" class="link-btn">На сайт</a>
+    </div>
+</header>
+
+<main class="admin-page">
+    <div class="admin-locked" id="admin-locked" hidden>
+        <h1 class="serif">Доступ только для администратора</h1>
+        <p id="admin-locked-text">Войдите в аккаунт администратора на сайте.</p>
+        <a href="index.html" class="btn-dark">На главную</a>
+    </div>
+
+    <div id="admin-app" hidden>
+        <h1 class="admin-title serif">Управление магазином</h1>
+
+        <div class="admin-stats" id="admin-stats"></div>
+
+        <nav class="admin-tabs" role="tablist">
+            <button type="button" class="admin-tab active" data-tab="products" role="tab">Товары</button>
+            <button type="button" class="admin-tab" data-tab="orders" role="tab">Заказы</button>
+            <button type="button" class="admin-tab" data-tab="reviews" role="tab">Отзывы</button>
+            <button type="button" class="admin-tab" data-tab="users" role="tab">Пользователи</button>
+        </nav>
+
+        <section class="admin-panel active" id="panel-products">
+            <div class="admin-toolbar">
+                <input type="search" class="admin-input admin-search" id="products-search" placeholder="Поиск по названию">
+                <select class="admin-input" id="products-category">
+                    <option value="">Все категории</option>
+                </select>
+                <button type="button" class="btn-dark btn-small" id="product-add">+ Добавить товар</button>
+            </div>
+            <div class="table-wrap" id="products-table"></div>
+        </section>
+
+        <section class="admin-panel" id="panel-orders">
+            <div class="admin-toolbar">
+                <select class="admin-input" id="orders-status">
+                    <option value="">Все статусы</option>
+                </select>
+            </div>
+            <div class="table-wrap" id="orders-table"></div>
+        </section>
+
+        <section class="admin-panel" id="panel-reviews">
+            <div class="admin-toolbar">
+                <select class="admin-input" id="reviews-rating">
+                    <option value="">Все оценки</option>
+                    <option value="5">★★★★★</option>
+                    <option value="4">★★★★</option>
+                    <option value="3">★★★</option>
+                    <option value="2">★★</option>
+                    <option value="1">★</option>
+                </select>
+            </div>
+            <div class="table-wrap" id="reviews-table"></div>
+        </section>
+
+        <section class="admin-panel" id="panel-users">
+            <div class="table-wrap" id="users-table"></div>
+        </section>
+    </div>
+</main>
+
+<div class="modal-overlay" id="product-modal">
+    <div class="modal-card modal-wide">
+        <button type="button" class="modal-close" data-close>&times;</button>
+        <h2 class="modal-title" id="product-modal-title">Новый товар</h2>
+        <form class="admin-form" id="product-form" novalidate>
+            <div class="admin-form-grid">
+                <div class="admin-form-preview">
+                    <div class="product-card-image" id="product-preview"></div>
+                </div>
+                <div class="admin-form-fields">
+                    <label>Название
+                        <input type="text" name="name" maxlength="200">
+                    </label>
+                    <div class="admin-form-row">
+                        <label>Цена, ₽
+                            <input type="number" name="price" min="0" step="1">
+                        </label>
+                        <label>Категория
+                            <select name="category" id="product-category"></select>
+                        </label>
+                    </div>
+                    <label>Картинка (путь к файлу)
+                        <input type="text" name="image_url" maxlength="500" placeholder="img/ring1.jpg">
+                    </label>
+                    <label>Описание
+                        <textarea name="description" rows="4"></textarea>
+                    </label>
+                </div>
+            </div>
+            <p class="form-error" id="product-error"></p>
+            <div class="admin-form-actions">
+                <button type="button" class="btn-outline btn-small" data-close>Отмена</button>
+                <button type="submit" class="btn-dark btn-small">Сохранить</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="order-toast" id="admin-toast"></div>
+
+<footer class="site-footer">
+    <div class="footer-line"></div>
+    <p class="serif">ALL RIGHTS RESERVED. 2026 Lumière</p>
+</footer>
+
+<script src="js/api.js"></script>
+<script src="js/common.js"></script>
+<script src="js/effects.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>

@@ -3,12 +3,13 @@ async function loadUser() {
         const user = await api.me();
         saveSession(null, user);
         return user;
-    } catch (err) {
-        if (err.status === 401 || err.status === 404) return null;
+    }
+    catch (err) {
+        if (err.status === 401 || err.status === 404)
+            return null;
         return getCurrentUser();
     }
 }
-
 async function loadCounts() {
     const [cart, reviews] = await Promise.allSettled([api.getCart(), api.getMyReviews()]);
     return {
@@ -16,10 +17,8 @@ async function loadCounts() {
         reviews: reviews.status === 'fulfilled' ? reviews.value.length : 0
     };
 }
-
 function profileHtml(user, counts) {
     const isAdmin = user.role === 'admin';
-
     const nameField = isAdmin
         ? `<div class="profile-field">
                <span class="profile-label">Имя</span>
@@ -29,7 +28,6 @@ function profileHtml(user, counts) {
                <span class="profile-label">Имя</span>
                <input class="profile-input" type="text" name="name" maxlength="100" autocomplete="name" value="${escapeHtml(user.name)}">
            </label>`;
-
     return `
         <div class="account-banner">
             <img src="img/account.jpg" alt="" class="lazy-img">
@@ -81,17 +79,17 @@ function profileHtml(user, counts) {
             </div>
         </div>`;
 }
-
 let messageTimer;
-
 function showProfileMessage(text, isError = false) {
     const message = document.getElementById('profile-message');
     clearTimeout(messageTimer);
     message.textContent = text;
     message.classList.toggle('is-error', isError);
-    if (!isError) messageTimer = setTimeout(() => { message.textContent = ''; }, 2500);
+    if (!isError)
+        messageTimer = setTimeout(() => {
+            message.textContent = '';
+        }, 2500);
 }
-
 async function saveProfile(event) {
     event.preventDefault();
     const form = event.currentTarget;
@@ -99,8 +97,8 @@ async function saveProfile(event) {
         address: form.address.value.trim(),
         phone: form.phone.value.trim()
     };
-    if (form.elements.name) data.name = form.elements.name.value.trim();
-
+    if (form.elements.name)
+        data.name = form.elements.name.value.trim();
     if (data.name === '') {
         showProfileMessage('Заполните поле «Имя»', true);
         return;
@@ -109,41 +107,37 @@ async function saveProfile(event) {
         showProfileMessage('Проверьте номер телефона', true);
         return;
     }
-
     const button = form.querySelector('button[type="submit"]');
     button.disabled = true;
     try {
         saveSession(null, await api.updateProfile(data));
         showProfileMessage('Сохранено');
-    } catch (err) {
+    }
+    catch (err) {
         showProfileMessage(err.message, true);
-    } finally {
+    }
+    finally {
         button.disabled = false;
     }
 }
-
 async function initAccountPage() {
     if (!getToken()) {
         location.href = 'index.html';
         return;
     }
-
     const user = await loadUser();
     if (!user) {
         clearSession();
         location.href = 'index.html';
         return;
     }
-
     const container = document.getElementById('account-content');
     container.innerHTML = profileHtml(user, await loadCounts());
     animateIn(container.querySelectorAll('.profile-enter'), 'profile-enter', 90);
-
     document.getElementById('profile-form').addEventListener('submit', saveProfile);
     document.getElementById('logout-btn').addEventListener('click', () => {
         clearSession();
         location.href = 'index.html';
     });
 }
-
 initAccountPage();

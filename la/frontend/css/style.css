@@ -634,26 +634,6 @@ img.lazy-img.is-loaded {
     font-size: 1.15rem;
 }
 
-.order-toast {
-    position: fixed;
-    bottom: 32px;
-    left: 50%;
-    transform: translateX(-50%) translateY(80px);
-    background: #2b2b2b;
-    color: #fff;
-    padding: 14px 32px;
-    border-radius: 10px;
-    font-size: 1.05rem;
-    opacity: 0;
-    pointer-events: none;
-    transition: transform 0.35s ease, opacity 0.35s ease;
-    z-index: 2000;
-}
-
-.order-toast.show {
-    transform: translateX(-50%) translateY(0);
-    opacity: 1;
-}
 
 .account-page {
     padding: 0 0 80px;
@@ -1902,4 +1882,8 @@ select:disabled {
 
 .checkout-form .btn-dark {
     margin-top: 6px;
+}
+
+.admin-feedback {
+    margin: 16px 0;
 }
